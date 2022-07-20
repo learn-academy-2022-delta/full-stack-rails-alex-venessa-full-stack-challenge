@@ -1,0 +1,315 @@
+  [1m[35m (139.5ms)[0m  [1m[35mCREATE DATABASE "blog_post_challenge_development" ENCODING = 'unicode'[0m
+  [1m[35m (34.5ms)[0m  [1m[35mCREATE DATABASE "blog_post_challenge_test" ENCODING = 'unicode'[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6241458340490022510)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBlogs (20220720180051)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" bigserial primary key, "title" character varying, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220720180051"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-07-20 18:01:04.800682"], ["updated_at", "2022-07-20 18:01:04.800682"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6241458340490022510)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/landing" for ::1 at 2022-07-20 14:01:53 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/landing"):
+  
+Started GET "/" for ::1 at 2022-07-20 14:01:57 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /opt/homebrew/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /opt/homebrew/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 327)
+Completed 200 OK in 11ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2837)
+
+
+  [1m[36mBlog Load (0.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Fitness Post"], ["content", "Its good to stay fit"], ["created_at", "2022-07-20 18:04:49.966796"], ["updated_at", "2022-07-20 18:04:49.966796"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (0.8ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Diet post"], ["content", "Different types of diets"], ["created_at", "2022-07-20 18:06:22.751319"], ["updated_at", "2022-07-20 18:06:22.751319"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (0.6ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Music"], ["content", "Genres of music"], ["created_at", "2022-07-20 18:07:35.291811"], ["updated_at", "2022-07-20 18:07:35.291811"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+Started GET "/" for ::1 at 2022-07-20 14:15:40 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /opt/homebrew/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /opt/homebrew/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 322)
+Completed 200 OK in 2ms (Views: 1.3ms | Allocations: 1037)
+
+
+Started GET "/index" for ::1 at 2022-07-20 14:15:44 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+Started GET "/index" for ::1 at 2022-07-20 14:17:54 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/index" for ::1 at 2022-07-20 14:18:09 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/index" for ::1 at 2022-07-20 14:20:43 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/" for ::1 at 2022-07-20 14:20:47 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /opt/homebrew/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /opt/homebrew/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | Allocations: 321)
+Completed 200 OK in 4ms (Views: 2.9ms | Allocations: 951)
+
+
+Started GET "/" for ::1 at 2022-07-20 14:20:50 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /opt/homebrew/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /opt/homebrew/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 1ms (Views: 0.6ms | Allocations: 266)
+
+
+Started GET "/blogs" for ::1 at 2022-07-20 14:21:04 -0400
+Processing by BlogController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blog/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blog/index.html.erb:4
+  Rendered blog/index.html.erb within layouts/application (Duration: 36.3ms | Allocations: 12228)
+  Rendered layout layouts/application.html.erb (Duration: 36.4ms | Allocations: 12331)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 12.5ms | Allocations: 13999)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `herb' for #<ActionView::Base:0x000000000190f0>
+
+@output_buffer.safe_append='    <li> '.freeze;@output_buffer.append=( herb.name );@output_buffer.safe_append='  </li>
+                                                                      ^^^^):
+    2: 
+    3: <ul>
+    4: <% @blogs.each do |blog| %>
+    5:     <li> <%= herb.name %>  </li>
+    6: <% end %>
+    7: 
+    8: </ul>
+  
+app/views/blog/index.html.erb:5
+app/views/blog/index.html.erb:4
+Started GET "/blog" for ::1 at 2022-07-20 14:21:07 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/blog"):
+  
+Started GET "/blogs" for ::1 at 2022-07-20 14:21:10 -0400
+Processing by BlogController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blog/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blog/index.html.erb:4
+  Rendered blog/index.html.erb within layouts/application (Duration: 14.0ms | Allocations: 5247)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 5335)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.4ms | Allocations: 5620)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `herb' for #<ActionView::Base:0x00000000019668>
+
+@output_buffer.safe_append='    <li> '.freeze;@output_buffer.append=( herb.name );@output_buffer.safe_append='  </li>
+                                                                      ^^^^):
+    2: 
+    3: <ul>
+    4: <% @blogs.each do |blog| %>
+    5:     <li> <%= herb.name %>  </li>
+    6: <% end %>
+    7: 
+    8: </ul>
+  
+app/views/blog/index.html.erb:5
+app/views/blog/index.html.erb:4
+Started GET "/blogs" for ::1 at 2022-07-20 14:21:38 -0400
+Processing by BlogController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blog/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blog/index.html.erb:4
+  Rendered blog/index.html.erb within layouts/application (Duration: 13.2ms | Allocations: 8540)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 8634)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms | Allocations: 9439)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Blog id: 1, title: "Fitness Post", content: "Its good to stay fit", created_at: "2022-07-20 18:04:49.966796000 +0000", updated_at: "2022-07-20 18:04:49.966796000 +0000">):
+    2: 
+    3: <ul>
+    4: <% @blogs.each do |blog| %>
+    5:     <li> <%= blog.name %>  </li>
+    6: <% end %>
+    7: 
+    8: </ul>
+  
+app/views/blog/index.html.erb:5
+app/views/blog/index.html.erb:4
+Started GET "/blogs" for ::1 at 2022-07-20 14:21:48 -0400
+Processing by BlogController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blog/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blog/index.html.erb:4
+  Rendered blog/index.html.erb within layouts/application (Duration: 11.0ms | Allocations: 5589)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 5683)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms | Allocations: 6508)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `blogs' for #<ActionView::Base:0x00000000019c58>
+
+@output_buffer.safe_append='    <li> '.freeze;@output_buffer.append=( blogs.name );@output_buffer.safe_append='  </li>
+                                                                      ^^^^^
+Did you mean?  blog
+               @blogs):
+    2: 
+    3: <ul>
+    4: <% @blogs.each do |blog| %>
+    5:     <li> <%= blogs.name %>  </li>
+    6: <% end %>
+    7: 
+    8: </ul>
+  
+app/views/blog/index.html.erb:5
+app/views/blog/index.html.erb:4
+Started GET "/blogs" for ::1 at 2022-07-20 14:21:52 -0400
+Processing by BlogController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blog/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blog/index.html.erb:4
+  Rendered blog/index.html.erb within layouts/application (Duration: 12.4ms | Allocations: 8296)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 8390)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms | Allocations: 9211)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Blog id: 1, title: "Fitness Post", content: "Its good to stay fit", created_at: "2022-07-20 18:04:49.966796000 +0000", updated_at: "2022-07-20 18:04:49.966796000 +0000">):
+    2: 
+    3: <ul>
+    4: <% @blogs.each do |blog| %>
+    5:     <li> <%= blog.name %>  </li>
+    6: <% end %>
+    7: 
+    8: </ul>
+  
+app/views/blog/index.html.erb:5
+app/views/blog/index.html.erb:4
+Started GET "/blogs" for ::1 at 2022-07-20 14:21:57 -0400
+Processing by BlogController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blog/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blog/index.html.erb:4
+  Rendered blog/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 911)
+  Rendered layout layouts/application.html.erb (Duration: 167.1ms | Allocations: 91977)
+Completed 200 OK in 171ms (Views: 169.0ms | ActiveRecord: 0.3ms | Allocations: 92842)
+
+
+Started GET "/blogs" for ::1 at 2022-07-20 14:22:11 -0400
+Processing by BlogController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blog/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blog/index.html.erb:4
+  Rendered blog/index.html.erb within layouts/application (Duration: 14.2ms | Allocations: 5807)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 5901)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.3ms | Allocations: 6728)
+
+
+  
+ActionView::Template::Error (undefined method `title' for Blog:Class):
+    2: 
+    3: <ul>
+    4: <% @blogs.each do |blog| %>
+    5:     <li> <%= Blog.title %>  </li>
+    6: <% end %>
+    7: 
+    8: </ul>
+  
+app/views/blog/index.html.erb:5
+app/views/blog/index.html.erb:4
+Started GET "/blogs" for ::1 at 2022-07-20 14:22:32 -0400
+Processing by BlogController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blog/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blog/index.html.erb:4
+  Rendered blog/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3589)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 3683)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.5ms | Allocations: 4504)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x0000000109c27ef0>::Blogs
+
+@output_buffer.safe_append='    <li> '.freeze;@output_buffer.append=( Blogs.title );@output_buffer.safe_append='  </li>
+                                                                      ^^^^^):
+    2: 
+    3: <ul>
+    4: <% @blogs.each do |blog| %>
+    5:     <li> <%= Blogs.title %>  </li>
+    6: <% end %>
+    7: 
+    8: </ul>
+  
+app/views/blog/index.html.erb:5
+app/views/blog/index.html.erb:4
+Started GET "/blogs" for ::1 at 2022-07-20 14:22:36 -0400
+Processing by BlogController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blog/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blog/index.html.erb:4
+  Rendered blog/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 5795)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 5889)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.3ms | Allocations: 6710)
+
+
+  
+ActionView::Template::Error (undefined method `title' for Blog:Class):
+    2: 
+    3: <ul>
+    4: <% @blogs.each do |blog| %>
+    5:     <li> <%= Blog.title %>  </li>
+    6: <% end %>
+    7: 
+    8: </ul>
+  
+app/views/blog/index.html.erb:5
+app/views/blog/index.html.erb:4
+Started GET "/blogs" for ::1 at 2022-07-20 14:23:47 -0400
+Processing by BlogController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blog/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blog/index.html.erb:4
+  Rendered blog/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 918)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 3845)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.7ms | Allocations: 4697)
+
+
+Started GET "/blogs" for ::1 at 2022-07-20 14:30:54 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blog/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blog/index.html.erb:4
+  Rendered blog/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 4780)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 40602)
+Completed 200 OK in 30ms (Views: 22.9ms | ActiveRecord: 3.7ms | Allocations: 44749)
+
+

@@ -47,8 +47,25 @@ As a developer, I can add new blog posts directly to my database.
 
 As a user, I can see all the blog titles listed on the home page of the application.
 
+http://localhost:3000/blogs
+Blog Posts
+Fitness Post
+Diet post
+Music
+
 
 As a user, I can click on the title of a blog and be routed to a page where I see the title and content of the blog post I selected.
+
+create show controller
+create show route
+create show view
+
+
+
+
+
+
+
 As a user, I can navigate from the show page back to the home page.
 As a user, I see a form where I can create a new blog post.
 As a user, I can click a button that will take me from the home page to a page where I can create a blog post.
